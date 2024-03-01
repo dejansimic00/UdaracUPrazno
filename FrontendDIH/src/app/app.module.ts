@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import your routing module
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { LoginIndexComponent } from './components/login-index/login-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    LoginIndexComponent
   ],
   imports: [
     BrowserModule,

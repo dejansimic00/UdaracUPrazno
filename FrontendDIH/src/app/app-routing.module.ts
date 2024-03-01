@@ -5,9 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AppComponent } from './app.component';
 
+import { LoginIndexComponent } from './components/login-index/login-index.component';
+
 export const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
-    { path: 'home-admin', component: AdminHomeComponent }
+    { path: 'home-admin', component: AdminHomeComponent },
+    {path:'login-index', component:LoginIndexComponent }
 ];
 
 @NgModule({
