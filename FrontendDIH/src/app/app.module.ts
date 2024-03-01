@@ -7,7 +7,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import your routing module
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { LoginIndexComponent } from './components/login-index/login-index.component';
+
 import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smjenu.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smje
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
