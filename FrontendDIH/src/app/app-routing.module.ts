@@ -6,11 +6,13 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AppComponent } from './app.component';
 
 import { LoginIndexComponent } from './components/login-index/login-index.component';
+import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smjenu.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
     { path: 'home-admin', component: AdminHomeComponent },
-    {path:'login-index', component:LoginIndexComponent }
+    {path:'login-index', component:LoginIndexComponent },
+    {path: 'dodaj-smjenu', component:DodajSmjenuComponent}
 ];
 
 @NgModule({
