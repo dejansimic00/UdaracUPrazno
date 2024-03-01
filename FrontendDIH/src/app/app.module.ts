@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import your routing module
@@ -9,8 +10,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { LoginIndexComponent } from './components/login-index/login-index.component';
 
 import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smjenu.component';
+import { SmjenaIndexComponent } from './components/admin/smjena-index/smjena-index.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     AdminHomeComponent,
     LoginIndexComponent,
-    DodajSmjenuComponent
+    DodajSmjenuComponent,
+    SmjenaIndexComponent
   ],
   imports: [
     BrowserModule,
