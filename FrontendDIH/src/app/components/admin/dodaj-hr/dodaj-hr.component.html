@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add HR Employee</title>
+    <link rel="stylesheet" href="dodaj-hr.component.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Dodaj zaposlenog u ljudske resurse</h2>
+        <form class="hr-employee-form">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" name="ime" required>
+            
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" name="prezime" required>
+
+            <label for="jmb">JMB:</label>
+<input type="text" id="jmb" name="jmb" pattern="\d{13}" title="Please enter 13 digits." required>
+
+
+            <label for="picture">Upload Picture:</label>
+            <input type="file" id="picture" name="picture" accept="image/*" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
