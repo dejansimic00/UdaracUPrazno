@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import your routing module
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { LoginIndexComponent } from './components/login-index/login-index.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginIndexComponent } from './components/login-index/login-index.compon
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
