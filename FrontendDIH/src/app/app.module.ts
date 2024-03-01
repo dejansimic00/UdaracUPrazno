@@ -9,6 +9,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { LoginIndexComponent } from './components/login-index/login-index.component';
 
 import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smjenu.component';
+import { DodajSektorComponent } from './components/admin/dodaj-sektor/dodaj-sektor.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     AdminHomeComponent,
     LoginIndexComponent,
-    DodajSmjenuComponent
+    DodajSmjenuComponent,
+    DodajSektorComponent
   ],
   imports: [
     BrowserModule,
