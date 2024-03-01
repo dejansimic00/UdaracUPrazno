@@ -2,7 +2,6 @@
     height: 100%;
     float: left;
     font-size: medium;
-
 }
 
 
@@ -22,7 +21,7 @@
     background-color: rgb(255, 255, 255);
     border-right: 1px solid var(--neutrals-neutral-200, #DDDFE4);
     position: fixed;
-    width: 216px;
+    width: 25%;
     height: 100%;
 }
 
