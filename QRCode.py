@@ -1,5 +1,16 @@
+import time
 import cv2
 from pyzbar.pyzbar import decode
+import serial
+
+def blink():
+    # Configure the serial port
+    ser = serial.Serial('COM10', 9600)  # Change 'COM1' to the appropriate port and 9600 to the baud rate
+    time.sleep(2)
+    # Send characters
+    ser.write('1'.encode('utf-8'))  # Send the string 'Hello', b prefix indicates bytes literal
+    # Close the serial port when done
+    ser.close()
 
 def scan_qr_code(frame):
     # Decode QR codes
@@ -23,8 +34,10 @@ def scan_qr_code(frame):
             if number % 2 == 0:
                 header_text = "Prijavljen"
                 header_color = (0, 255, 0)  # Green
+                blink()
+                return 1
             else:
-                header_text = "Nema pristup"
+                #header_text = "Nema pristup"
                 header_color = (0, 0, 255)  # Red
 
     # Add colored rectangle for the header
@@ -48,10 +61,12 @@ while True:
     ret, frame = cap.read()
 
     # Scan QR code and display the header
-    scan_qr_code(frame)
+    ret_val = scan_qr_code(frame)
 
     # Check for 'q' key press to exit
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+    if ret_val == 1:
         break
 
 # Release the camera and close OpenCV window

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../../services/http/http.service';
+import { LoginModel } from '../../models/loginModel';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-index',
@@ -7,22 +10,28 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './login-index.component.css'
 })
 export class LoginIndexComponent {
-  constructor(private http: HttpClient) { }
+  username="";
+  password="";
+  lmVar: LoginModel = {
+    id_osoba: 0,
+    uloga: 0
+  };
+  onSubmit() {
 
-  onSubmit(): void {
-    const url = `https://example.com/login?username=${encodeURIComponent(this.username)}&password=${encodeURIComponent(this.password)}`;
-    this.http.get(url)
-      .subscribe(
-        data => {
-          console.log(data);
-          // Handle the response data here
-        },
-        error => {
-          console.error('There was an error:', error);
-          // Handle errors here
-        }
-      );
+    var url="evidencijaRadnogVremena/login.php"+"?korisnicko_ime="+this.username+"&lozinka="+this.password;
+    this.service.getObject(url).subscribe(
+      result => {
+        console.log(result);
+        this.router.navigate(["/home-hr"]);
+        //this.notifyService.showSuccess(this.translate.instant('DodavanjePodatakaUspjesno'), this.translate.instant('Uspjesno'));
+      },
+      error => {
+        console.log(error);
+        //this.notifyService.showError(this.translate.instant('DodavanjePodatakaGreska'), this.translate.instant('Greska'));
+      }
+    );
   }
+  constructor(private service: HttpService,private router: Router) { }
 }
 
 

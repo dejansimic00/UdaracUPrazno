@@ -1,11 +1,15 @@
-<form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Login</button>
-  </form>
+<form (ngSubmit)="onSubmit()" class="topContainer">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="password">
+  </div>
+  <button type="submit">Login</button>
+</form>

@@ -9,6 +9,6 @@ export interface Radnik {
     sef: number
     korisnicko_ime: string
     lozinka: string
-    uloga: number
+    uloga: string
     id_sef: number
   }

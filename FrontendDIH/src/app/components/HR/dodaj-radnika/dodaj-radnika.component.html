@@ -26,7 +26,8 @@
                     [(ngModel)]="radnik.jmbg">
 
                 <label for="picture">Upload Picture:</label>
-                <input type="file" id="picture" name="picture" accept="image/*"
+                <input type="file" id="picture" name="picture"
+                    (change)="onFileSelected($event)" accept="image/jpeg"
                     required>
 
                 <label for="username">Username:</label>
