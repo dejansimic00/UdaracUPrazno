@@ -1,0 +1,34 @@
+<!-- <div class="top-container">
+    <p>smjena-index works!</p>
+
+    
+    <table id="radnici" datatable [dtOptions]="dtOptions" class="table">
+    </table>
+</div> -->
+
+<br>
+<div class="top-container ">
+    <header class="py-3">
+        <div class="heder1 fs-4">
+            <h2> 'Radnici'</h2>
+        </div>
+        <hr>
+        <div class="das">
+            <input class="content input-with-icon" #search type="search"
+                placeholder="Pretraga"
+                (keyup)="onSearch(search.value)">
+
+            <div class="buttondodajclana">
+                <button type="button" (click)="createRow()"
+                    class="btn btn-primary">Dodaj</button>
+            </div>
+        </div>
+    </header>
+    <div class="card-body px-0 pb-2">
+        <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0" id="radnici" datatable
+                [dtOptions]="dtOptions" width="100%">
+            </table>
+        </div>
+    </div>
+</div>
