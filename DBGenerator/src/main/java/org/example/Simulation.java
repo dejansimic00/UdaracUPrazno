@@ -2,19 +2,20 @@ package org.example;
 
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class Simulation {
 
 
     public static void main(String[] args) {
-        try (Connection connection = DriverManager.getConnection(Utils.JDBCURL, "root", "Tesl499")) {
+        try (Connection connection = DriverManager.getConnection(Utils.JDBCURL, "hack", "hack")) {
             if (connection != null) {
                 System.out.println("Connected to the database!");
                 //////////////////////////////
                 //generateData(connection);
-                dolazakPrvaSmjena(connection);
-
+                //dolazakPrvaSmjena(connection);
+                odlazakNaPauzu(connection );
 
             } else {
                 System.out.println("Failed to make connection!");
@@ -24,6 +25,43 @@ public class Simulation {
             e.printStackTrace();
         }
     }
+
+    private static void odlazakNaPauzu(Connection connection, ArrayList<Integer> ids){
+            ids.stream().forEach(id->{
+
+
+                    String query = "SELECT * FROM evidencija_radnog_vremena.RADNO_VRIJEME "+
+                    " where id_osoba=?"+
+                    " order by id desc " +
+                    "LIMIT 1;";
+
+                    int resultId;
+                try (PreparedStatement statement = connection.prepareStatement(query)) {
+                    statement.setLong(1, id);
+                    ResultSet result = statement.executeQuery();
+                    result.getInt(1)
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    // i--;
+                }
+
+
+
+                    String query = "update RADNO_VRIJEME " +
+                            "set kraj=now() " +
+                            "where id_osoba= ?";
+                    try (PreparedStatement statement = connection.prepareStatement(query)) {
+                    statement.setLong(1, id);
+                    statement.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    // i--;
+                }
+            });
+    }
+
+
 
     private static void dolazakPrvaSmjena(Connection connection) {
         long idOsoba = 0;
@@ -49,7 +87,7 @@ public class Simulation {
                     statement.executeUpdate();
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    i--;
+                   // i--;
                 }
             }
         } catch (SQLException e) {

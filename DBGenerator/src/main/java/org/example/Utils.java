@@ -48,7 +48,7 @@ public class Utils {
 
     }
 
-    public static String JDBCURL = "jdbc:mysql://127.0.0.1:3306/evidencija_radnog_vremena";
+    public static String JDBCURL = "jdbc:mysql://192.168.20.249:3306/evidencija_radnog_vremena";
 
 
     public static String getIme(){
