@@ -13,7 +13,7 @@ export class HttpService {
   constructor(private httpClient: HttpClient) { }
 
   create(url: string, item: any, options?: {}): Observable<any> {
-    return this.httpClient.post<any>(url, JSON.stringify(item), options)
+    return this.httpClient.post<any>(url, item, options)
       .pipe()
   }
 

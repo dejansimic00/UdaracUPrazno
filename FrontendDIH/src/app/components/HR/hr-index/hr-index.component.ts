@@ -7,6 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './hr-index.component.css'
 })
 export class HrIndexComponent {
+  odjava() {
+    this.router.navigate(["/login-index"]);
+  }
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   @ViewChild('mysidebar') sidebar!: ElementRef;
