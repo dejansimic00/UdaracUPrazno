@@ -26,39 +26,40 @@ public class Simulation {
         }
     }
 
-    private static void odlazakNaPauzu(Connection connection, ArrayList<Integer> ids){
-            ids.stream().forEach(id->{
+    private static void odlazakNaPauzu(Connection connection){
+        int idRadnogVremena=0;
+        long trenutnoVrijeme = 0;
+
+        String query = "SELECT * FROM RADNO_VRIJEME where kraj is null limit 3;";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+
+            ResultSet vrijeme = statement.executeQuery(query);
+
+            while (vrijeme.next()){
+                idRadnogVremena = vrijeme.getInt("id");
+                query = "update RADNO_VRIJEME set kraj =  ?, aktivnost = 'na pauzi' where id = ?";
+                trenutnoVrijeme = System.currentTimeMillis();
+
+                try (PreparedStatement statement2 = connection.prepareStatement(query)) {
+                    trenutnoVrijeme = System.currentTimeMillis();
+                    java.sql.Timestamp timestamp = new java.sql.Timestamp(trenutnoVrijeme);
+                    statement2.setTimestamp(1, timestamp);
+                    statement2.setInt(2, idRadnogVremena);
 
 
-                    String query = "SELECT * FROM evidencija_radnog_vremena.RADNO_VRIJEME "+
-                    " where id_osoba=?"+
-                    " order by id desc " +
-                    "LIMIT 1;";
-
-                    int resultId;
-                try (PreparedStatement statement = connection.prepareStatement(query)) {
-                    statement.setLong(1, id);
-                    ResultSet result = statement.executeQuery();
-                    result.getInt(1)
-
+                    statement2.executeUpdate();
                 } catch (SQLException e) {
+                    System.err.println("Failed to insert data into OSOBA table!");
                     e.printStackTrace();
-                    // i--;
                 }
 
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to insert data into OSOBA table!");
+            e.printStackTrace();
 
-
-                    String query = "update RADNO_VRIJEME " +
-                            "set kraj=now() " +
-                            "where id_osoba= ?";
-                    try (PreparedStatement statement = connection.prepareStatement(query)) {
-                    statement.setLong(1, id);
-                    statement.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    // i--;
-                }
-            });
+        }
     }
 
 
@@ -90,21 +91,12 @@ public class Simulation {
                    // Set the Timestamp as the third parameter in the PreparedStatement
                    statement2.setTimestamp(3, timestamp);
 
-
-<<<<<<< HEAD
-                    statement.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                   // i--;
-                }
-=======
-
                    statement2.executeUpdate();
                } catch (SQLException e) {
                    System.err.println("Failed to insert data into OSOBA table!");
                    e.printStackTrace();
                }
->>>>>>> 2cbcedf634821bcdfd58e684fb4fb0a61c45b745
+
             }
         } catch (SQLException e) {
             System.err.println("Failed to insert data into OSOBA table!");
