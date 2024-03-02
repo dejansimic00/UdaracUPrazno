@@ -9,7 +9,20 @@ import { HttpClient } from '@angular/common/http';
 export class LoginIndexComponent {
   constructor(private http: HttpClient) { }
 
-  
+  onSubmit(): void {
+    const url = `https://example.com/login?username=${encodeURIComponent(this.username)}&password=${encodeURIComponent(this.password)}`;
+    this.http.get(url)
+      .subscribe(
+        data => {
+          console.log(data);
+          // Handle the response data here
+        },
+        error => {
+          console.error('There was an error:', error);
+          // Handle errors here
+        }
+      );
+  }
 }
 
 

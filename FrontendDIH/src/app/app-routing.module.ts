@@ -14,7 +14,7 @@ import { SmjenaIndexComponent } from './components/admin/smjena-index/smjena-ind
 import { HrIndexComponent } from './components/HR/hr-index/hr-index.component';
 import { RadnikIndexComponent } from './components/HR/radnik-index/radnik-index.component';
 import { DodajRadnikaComponent } from './components/HR/dodaj-radnika/dodaj-radnika.component';
-
+import { NadredjeniComponent } from './components/nadredjeni/nadredjeni.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
@@ -28,7 +28,8 @@ export const routes: Routes = [
     {path:'login-index', component:LoginIndexComponent },
     {path: 'dodaj-smjenu', component:DodajSmjenuComponent},
     {path: 'dodaj-sektor', component:DodajSektorComponent},
-    {path: 'dodaj-hr',component:DodajHrComponent}
+    {path: 'dodaj-hr',component:DodajHrComponent},
+    {path: 'nadredjeni',component:NadredjeniComponent}
 ];
 
 @NgModule({
