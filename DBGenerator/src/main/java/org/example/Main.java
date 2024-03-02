@@ -16,7 +16,8 @@ public class Main {
                 System.out.println("Connected to the database!");
                 //////////////////////////////
                 //generateData(connection);
-
+                //dodajProstorije(connection);
+                dodajPristupProstoriji(connection);
             } else {
                 System.out.println("Failed to make connection!");
             }
@@ -284,17 +285,24 @@ public class Main {
 
             // Generate 7 random rooms
             for (int i = 0; i < 7; i++) {
-                String port = Utils.getPort();
-                String kamera = Utils.getPort();
-                String naziv = Utils.getProstorija();
+                try {
 
-                // Set values for the placeholders
-                preparedStatement.setString(1, port);
-                preparedStatement.setString(2, kamera);
-                preparedStatement.setString(3, naziv);
 
-                // Execute the prepared statement
-                preparedStatement.executeUpdate();
+                    String port = Utils.getPort();
+                    String kamera = Utils.getPort();
+                    String naziv = Utils.getProstorija();
+
+                    // Set values for the placeholders
+                    preparedStatement.setString(1, port);
+                    preparedStatement.setString(2, kamera);
+                    preparedStatement.setString(3, naziv);
+
+                    // Execute the prepared statement
+                    preparedStatement.executeUpdate();
+                } catch (SQLException e){
+                    System.out.println("Duplikat");
+
+                }
             }
 
             // Close the prepared statement and connection
@@ -305,6 +313,51 @@ public class Main {
         }
     }
 
+    private static void dodajPristupProstoriji(Connection connection){
+
+        String query = "select * from OSOBA limit 50;";
+        int idProstorija = 0;
+        ArrayList<Integer> prostorije = listaProstorija(connection);
+
+        int idOsoba = 0;
+        try (Statement statement = connection.createStatement()) {
+            ResultSet osobe = statement.executeQuery(query);
+
+            while (osobe.next()) {
+
+                try (Statement statement2 = connection.createStatement()) {
+                    idOsoba = osobe.getInt("id_osoba");
+                    idProstorija = prostorije.get(RANDOM.nextInt(prostorije.size()));
+                    query = "insert into OSOBA_PROSTORIJA (id_osoba,id_prostorija) values ('"+ idOsoba+"', '"+ idProstorija +"')";
+                    statement2.executeUpdate(query);
+                }catch (SQLException b){
+                    System.out.println("Greskka kod dodavanja pristupa");
+                    b.printStackTrace();
+                }
+
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    private static ArrayList<Integer> listaProstorija(Connection connection){
+        String query = "Select * from PROSTORIJA";
+        ArrayList<Integer> ids = new ArrayList<>();
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet= statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_prostorija");
+                ids.add(id);
+            }
+        } catch ( SQLException e){
+
+        }
+
+        return ids;
+
+    }
     ////////////////////////////////////////SIMULACIJA////////////////////////////////////////
 
 
