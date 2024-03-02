@@ -11,12 +11,19 @@ import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smje
 import { DodajSektorComponent } from './components/admin/dodaj-sektor/dodaj-sektor.component';
 import { DodajHrComponent } from './components/admin/dodaj-hr/dodaj-hr.component';
 import { SmjenaIndexComponent } from './components/admin/smjena-index/smjena-index.component';
+import { HrIndexComponent } from './components/HR/hr-index/hr-index.component';
+import { RadnikIndexComponent } from './components/HR/radnik-index/radnik-index.component';
+import { DodajRadnikaComponent } from './components/HR/dodaj-radnika/dodaj-radnika.component';
 
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home-admin', pathMatch: 'full' },
     { path: 'home-admin', component: AdminHomeComponent, children:[
       {path: 'smjena-index', component: SmjenaIndexComponent}
+    ] },
+    { path: 'home-hr', component: HrIndexComponent, children:[
+      {path: 'radnik-index', component: RadnikIndexComponent},
+      {path: 'dodaj-radnika', component: DodajRadnikaComponent}
     ] },
     {path:'login-index', component:LoginIndexComponent },
     {path: 'dodaj-smjenu', component:DodajSmjenuComponent},

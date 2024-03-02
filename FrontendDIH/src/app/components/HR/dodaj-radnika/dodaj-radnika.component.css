@@ -31,7 +31,24 @@ hr-employee-form label {
 input[type="text"],
 input[type="password"],
 input[type="file"],
+span,
 button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+::ng-deep .ng-select .ng-select-container .ng-value-container {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+::ng-deep .ng-option-label {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;

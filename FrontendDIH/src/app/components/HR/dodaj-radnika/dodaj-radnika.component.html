@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add HR Employee</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Dodaj radnika</h2>
+            <form class="hr-employee-form" (ngSubmit)="onSubmit()">
+                <label for="ime">Ime:</label>
+                <input type="text" id="ime" name="ime" required
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="radnik.ime">
+
+                <label for="prezime">Prezime:</label>
+                <input type="text" id="prezime" name="prezime" required
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="radnik.prezime">
+
+                <label for="jmb">JMB:</label>
+                <input type="text" id="jmb" name="jmb" pattern="\d{13}"
+                    title="Please enter 13 digits." required
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="radnik.jmbg">
+
+                <label for="picture">Upload Picture:</label>
+                <input type="file" id="picture" name="picture" accept="image/*"
+                    required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="radnik.korisnicko_ime">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="radnik.lozinka">
+
+                <label>Uloga:</label>
+                <!-- <ng-select [(ngModel)]="uloge">
+                    <ng-option *ngFor="let uloga of uloge"
+                        [value]="uloga.id">{{uloga.name}}</ng-option>
+                </ng-select> -->
+                <ng-select [items]="uloge"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedUloga"
+                    [ngModelOptions]="{standalone: true}">
+                </ng-select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
