@@ -14,13 +14,8 @@ public class Main {
         try (Connection connection = DriverManager.getConnection(Utils.JDBCURL, "root", "Tesl499")) {
             if (connection != null) {
                 System.out.println("Connected to the database!");
-                /////////////////////
-                //dodajPoslove(connection); // Call the method to add jobs
-                //dodajSmjene(connection);
-                //dodajOsobe(connection);
-                //dodajSefove(connection);
-                //dodajNaloge(connection);
-                dodajProstorije(connection);
+                //////////////////////////////
+                //generateData(connection);
 
             } else {
                 System.out.println("Failed to make connection!");
@@ -31,6 +26,14 @@ public class Main {
         }
     }
 
+    private static void generateData(Connection connection){
+        dodajPoslove(connection); // Call the method to add jobs
+        dodajSmjene(connection);
+        dodajOsobe(connection);
+        dodajSefove(connection);
+        dodajNaloge(connection);
+        dodajProstorije(connection);
+    }
     private static void dodajPoslove(Connection connection) {
         try (Statement statement = connection.createStatement()) {
             // Insert four jobs into the "posao" table
@@ -301,6 +304,9 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    ////////////////////////////////////////SIMULACIJA////////////////////////////////////////
+
 
 
 }
