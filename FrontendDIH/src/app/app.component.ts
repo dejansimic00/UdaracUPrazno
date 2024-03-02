@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 //dobro
 export class AppComponent {
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(router: Router, http: HttpClient) {
     
   }
   title = 'FrontendDIH';

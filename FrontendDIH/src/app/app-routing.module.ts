@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AppComponent } from './app.component';
+import { DataTablesModule } from 'angular-datatables';
 
 import { LoginIndexComponent } from './components/login-index/login-index.component';
 import { DodajSmjenuComponent } from './components/admin/dodaj-smjenu/dodaj-smjenu.component';
@@ -24,7 +25,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), DataTablesModule.forRoot()],
   exports: [RouterModule]
 })
 
