@@ -1,3 +1,166 @@
+.heder1 {
+    margin-left: 16px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.searchCol {
+    vertical-align: center;
+}
+
+.btn {
+    width: 128px;
+    height: 40px;
+    background-color: var(--red-var);
+}
+
+.buttonCol {
+    display: flex;
+    justify-content: right;
+    margin-right: 16px;
+}
+
+
+::ng-deep .tableHeder {
+    display: flex;
+    justify-content: space-between;
+}
+
+::ng-deep .tableFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+::ng-deep .nazivKolona {
+    background-color: rgb(255, 0, 0);
+}
+
+.content {
+    margin-right: 2px;
+    margin-left: 10px;
+    border: 1px lightgray solid;
+    border-radius: 5px;
+    padding: 1px;
+    width: 300px;
+    height: 40px;
+}
+
+
+.input-with-icon {
+    padding-left: 40px;
+    background-image: url('../../../../assets/img/admin-icons/Search.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.input-with-icon::placeholder {
+    background-size: 20px;
+}
+
 .top-container {
     margin-left: 27%;
+    margin-right: 2%;
+    border: 1px lightgray solid;
+    border-radius: 25px;
+    padding: 0px;
+}
+
+.buttondodajclana {
+    display: inline;
+    position: absolute;
+    right: 0;
+    padding-right: 150px;
+}
+
+.clanoviedit {
+    color: var(--neutrals-neutral-950, #14161A);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.buttondodajclana {
+    margin-right: 2%;
+    width: 0;
+}
+
+::ng-deep #radnici th {
+    border-bottom: 1px solid var(--neutrals-neutral-300, #C4C8CF);
+    background: var(--neutrals-neutral-100, #F3F4F6);
+    color: #676E79;
+    font-weight: bold;
+}
+
+::ng-deep .table.dataTable {
+
+    font-weight: 400;
+    color: #676E79;
+}
+
+
+::ng-deep .align-middle .edit {
+    background-image: url('../../../../assets/img/admin-icons/Vector.svg');
+    height: 5px;
+    display: inline;
+    background-repeat: no-repeat;
+    background-position: center, 50%, 50%;
+    padding: 12px;
+}
+
+::ng-deep .align-middle .delete {
+    background-image: url('../../../../assets/img/admin-icons/delete.svg');
+    height: 5px;
+    display: inline;
+    background-repeat: no-repeat;
+    background-position: right, 50%, 50%;
+    padding: 12px;
+    margin-right: 5px;
+
+}
+
+::ng-deep .align-middle .details {
+    background-image: url('../../../../assets/img/admin-icons/details.svg');
+    background-size: 15px;
+    display: inline;
+    background-repeat: no-repeat;
+    background-position: left, 50%, 50%;
+    padding: 12px;
+
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: 1px solid #ccc;
+    margin: 2px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_length {
+    padding-left: 15px;
+    padding-top: 5px;
+
+}
+
+::ng-deep .dataTables_wrapper .dataTables_info {
+    padding-right: 10px;
+}
+
+::ng-deep .dataTables_length {
+    margin-bottom: 10px;
+}
+
+::ng-deep #radnici tr td:nth-child(1) {
+    font-weight: 500;
+
+}
+
+
+.table-responsive {
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
 }
