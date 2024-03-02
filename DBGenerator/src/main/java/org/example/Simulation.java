@@ -38,19 +38,27 @@ public class Simulation {
 
            while (osobe.next()){
 
+               query = "insert into RADNO_VRIJEME (id_osoba, id_posao, pocetak) VALUES (?,?,?)";
+               trenutnoVrijeme = System.currentTimeMillis();
                idOsoba = osobe.getInt("id_osoba");
-                try {
-                    query = "insert into RADNO_VRIJEME (id_osoba, id_posao, pocetak) VALUES (?,?,?)";
-                    statement.setLong(1, idOsoba);
-                    statement.setInt(2, id_posao);
-                    statement.setLong(3, trenutnoVrijeme);
+               try (PreparedStatement statement2 = connection.prepareStatement(query)) {
+                   statement2.setLong(1, idOsoba);
+                   statement2.setInt(2, id_posao);
+                   long currentTimeMillis = System.currentTimeMillis();
+
+                   // Convert milliseconds to a Timestamp
+                   java.sql.Timestamp timestamp = new java.sql.Timestamp(currentTimeMillis);
+
+                   // Set the Timestamp as the third parameter in the PreparedStatement
+                   statement2.setTimestamp(3, timestamp);
 
 
-                    statement.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    i--;
-                }
+
+                   statement2.executeUpdate();
+               } catch (SQLException e) {
+                   System.err.println("Failed to insert data into OSOBA table!");
+                   e.printStackTrace();
+               }
             }
         } catch (SQLException e) {
             System.err.println("Failed to insert data into OSOBA table!");
