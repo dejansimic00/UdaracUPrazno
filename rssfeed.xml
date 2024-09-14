@@ -1,0 +1,43 @@
+<rss version="2.0">
+  <channel>
+    <title>Kompas Podcast</title>
+    <link>https://www.youtube.com/channel/UCF6R-b8SkXaiID56TvWOCYQ</link>
+    <description>A podcast discussing various topics related to sports, culture, and history.</description>
+    <language>en-us</language>
+
+    <item>
+      <title>Nenad Zimonjić o Janiku Sineru i doping aferi</title>
+      <description>Discussion about the impact of doping allegations on athletes' careers.</description>
+      <pubDate>Sat, 14 Sep 2024 10:30:04 +0000</pubDate>
+      <guid isPermaLink="false">96EigKHj39Y</guid>
+      <enclosure url="http://example.com/episode1.mp3" length="5860687" type="audio/mpeg" />
+    </item>
+
+    <item>
+      <title>Nenad Zimonjić — Tenis je najčistiji sport / Podkast Kompas 43</title>
+      <description>Nenad Zimonjić discusses the integrity of tennis and the role of doping.</description>
+      <pubDate>Fri, 13 Sep 2024 17:00:54 +0000</pubDate>
+      <guid isPermaLink="false">wFZyVXXEoqQ</guid>
+      <enclosure url="http://example.com/episode2.mp3" length="5860687" type="audio/mpeg" />
+    </item>
+
+    <item>
+      <title>Najava: Nenad Zimonjić — Tenis je najčistiji sport</title>
+      <description>Announcement for the upcoming episode featuring Nenad Zimonjić.</description>
+      <pubDate>Thu, 12 Sep 2024 16:00:37 +0000</pubDate>
+      <guid isPermaLink="false">cL_MrC1OCAo</guid>
+      <enclosure url="http://example.com/episode3.mp3" length="5860687" type="audio/mpeg" />
+    </item>
+
+    <item>
+      <title>Knez Lazar je koristio vatreno oruzje u Kosovskoj bitki</title>
+      <description>Exploring the historical context of Knez Lazar's use of firearms.</description>
+      <pubDate>Mon, 09 Sep 2024 14:00:42 +0000</pubDate>
+      <guid isPermaLink="false">xGBxgfR06c8</guid>
+      <enclosure url="http://example.com/episode4.mp3" length="5860687" type="audio/mpeg" />
+    </item>
+
+    <!-- Add more <item> elements as needed -->
+
+  </channel>
+</rss>
